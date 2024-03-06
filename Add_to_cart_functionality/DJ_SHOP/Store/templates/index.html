@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %} Welcome {% endblock %}
+
+{% block content %}
+
+<div style="display: flex;">
+    <hr style="flex-grow: 1;">
+    <h2 style="text-align: center; margin: 0 10px; margin-bottom: 8px;" >All items</h2>
+    <hr style="flex-grow: 1;">
+</div>
+<div class="item">
+  <!-- Start of the Bootstrap row -->
+  <div class="productContainer">
+  <div class="row">
+   
+    <!-- Card -->
+    {% for product in products %}
+    <div class="col-md-3">
+        <a style="text-decoration: none;" href=""> <!--Here item: is the app_name-->
+        <div class="card" style="margin-bottom: 15px;">
+            <img src="{{product.picture.url}}" class="card-img-top" alt="Image 1" width="200px" height="200px">
+            <div class="card-body">
+                <h5 class="card-title">{{product.name}}</h5>
+                <p class="card-text">$ {{product.price}}</p>
+                <button type="button" value="{{product.id}}" class="btn btn-light">Add to Card</button>
+            </div>
+        </div>
+    </a>
+    </div>
+    {% endfor %}
+</div>
+
+</div> <!-- End of the item row -->
+</div>
+
+
+{% endblock %}
